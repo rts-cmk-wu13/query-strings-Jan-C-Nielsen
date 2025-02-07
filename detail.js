@@ -15,8 +15,9 @@ then(x => {
      <div> <img src=img/${x.image}></div>
       <p>${x.destination}</p>
       <p>${x.text}</p>  
+      <p>${x.facilities.map(y => y).join("<br>")}</p>  
       `;
-        // <p>${x.facilities.map(y => y).join("<br>")}</p>  
+        // 
        section.innerHTML = innerHTML;
        body.append(section);
     

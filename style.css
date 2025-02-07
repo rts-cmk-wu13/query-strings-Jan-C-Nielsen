@@ -1,0 +1,21 @@
+.card{
+     max-width: 29em; 
+}
+
+.card__more{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+img{
+    max-width: 100%;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    column-gap: 5%;
+}

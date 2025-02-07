@@ -1,11 +1,11 @@
 let search = window.location.search;
 let params = new URLSearchParams(search);
-
+console.log(params);
 let id = params.get("id");
 let path =`./data/${id}.json`;
 console.log(path);
 fetch(path).
-then(r => Response.json).
+then(r => r.json()).
 then(x => {
     console.log(x);
     const body = document.querySelector("body");

@@ -1,7 +1,25 @@
 
-function heartclick(id){
-  console.log("heartclick:" + id);
+function SaveLocalStorage(key, value) {
+  localStorage.setItem(key, value);
 }
+
+
+function GetLocalStorage(key) {
+  return localStorage.getItem(key);
+}
+
+
+function DeleteLocalStorage(key) {
+  localStorage.removeItem(key);
+}
+
+
+function heartclick(id) {
+  console.log("heartclick:" + id);
+  SaveLocalStorage("heartclick:" + id, id);
+}
+
+
 
 fetch("./data/destinations.json")
   .then(response => response.json())
@@ -20,14 +38,8 @@ fetch("./data/destinations.json")
      </div>   `).join("");
 
     div.innerHTML = innerHTML;
-   
+
     body.append(div);
-    //console.log(uniqueID);
-   // let heart = document.querySelector(`#${x.id}`);
-   // console.log(heart);
-    //heart.addEventListener("click", heartclick);
-    
   })
 
 
-  

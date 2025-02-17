@@ -11,13 +11,16 @@ then(x => {
     const body = document.querySelector("body");
     let section = document.createElement("section");
     let innerHTML = `
-     <h2>${x.title}</h2>  
-     <div> <img src=img/${x.image}></div>
-      <p>${x.destination}</p>
+    <div> <img src=img/${x.image}></div>
+    <div class="textarea">
+      <p class="dest">${x.destination}</p>
+      <h2>${x.title}</h2>  
       <p>${x.text}</p>  
-      <p>${x.facilities.map(y => y).join("<br>")}</p>  
+      <h3>Facilities</h3>
+      <p>${x.facilities.join("<br>")}</p>  
+    </div>
       `;
-        // 
+       
        section.innerHTML = innerHTML;
        body.append(section);
     

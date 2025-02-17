@@ -19,3 +19,23 @@ img{
     grid-template-columns: repeat(4, auto);
     column-gap: 5%;
 }
+
+
+section{
+    display: flex;
+    justify-content: space-around;
+}
+
+section img{
+    width: 30em;
+}
+
+.textarea{
+    width: 30em;
+   
+}
+
+
+.dest {
+  text-align: center;
+}

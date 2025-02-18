@@ -1,6 +1,9 @@
 let Fav = []
 
-function Read() {
+/**
+* @returns {string}
+*/
+function Init() {
   let temp = GetLocalStorage("heart");
   console.log(temp)
   if (temp == null)
@@ -10,39 +13,49 @@ function Read() {
 }
 
 
-Fav = Read();
+Fav = Init();
 console.log(Fav);
 
-
+/**
+* @param {string} key
+* @param {string} value
+*/
 function SaveLocalStorage(key, value) {
   console.log(value);
   localStorage.setItem(key, value);
 }
 
-
+/**
+* @param {string} key
+* @returns {string}
+*/
 function GetLocalStorage(key) {
   return localStorage.getItem(key);
 }
 
-
+/**
+* @param {string} key
+* 
+*/
 function DeleteLocalStorage(key) {
   localStorage.removeItem(key);
 }
 
-
+/**
+* @param {string} id
+* 
+*/
 function heartclick(id) {
   let spade = document.querySelector(`#spade${id}`);
   // console.log("heartclick:" + id);
   if (Fav.includes(id)) {
     Fav = Fav.filter(x => id != x);
     console.log(Fav);
-   
-    spade.innerHTML = "🖤";
-    
+    spade.innerHTML = "🖤";   
   }
   else {
     Fav.push(id);
-    document.querySelector(`#spade${id}`).innerHTML = "❤️";
+    spade.innerHTML = "❤️";
   }
   SaveLocalStorage("heart", JSON.stringify(Fav));
 }
@@ -54,6 +67,7 @@ fetch("./data/destinations.json")
     const body = document.querySelector("body");
     const div = document.createElement("div");
     div.classList.add("grid");
+    
     let innerHTML = y.destinations.map(x => `  
       <div class="card">  
       <h2>${x.title}</h2>  
@@ -64,7 +78,6 @@ fetch("./data/destinations.json")
       </div>`).join("");
 
     div.innerHTML = innerHTML;
-
     body.append(div);
   })
 

@@ -80,14 +80,12 @@ then(x => {
     <div class="textarea">
       <p class="dest">${x.destination}</p>
       <h2>${x.title}</h2>  
-      <p>${x.text}</p>  
+      <p>${x.text.replace(/;/g , "<br>&nbsp;&nbsp;-").replace(/:/g , ":<br>&nbsp;&nbsp;-").replace(/\.(?!$)/g , ".<br><br>")}</p>  
       <h3>Facilities</h3>
-      <p>${x.facilities.join("<br>")}</p>  
+      <ul><li>${x.facilities.join("</li><li>")}</li></ul>  
       <div class="card__more"><span  id="spade${x.id}" onclick="heartclick(${x.id})">
        ${Fav.includes(x.id) ? "❤️" : "🖤"}</span></div>
-    </div>
-    
-      `;
+    </div>`;
        
        section.innerHTML = innerHTML;
        body.append(section);

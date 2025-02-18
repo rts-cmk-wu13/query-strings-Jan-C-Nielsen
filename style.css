@@ -22,11 +22,13 @@ img{
 
 
 section{
+    align-items: center;
     display: flex;
     justify-content: space-around;
 }
 
 section img{
+   
     width: 30em;
 }
 

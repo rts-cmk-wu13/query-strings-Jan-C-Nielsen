@@ -1,5 +1,5 @@
 let Fav = []
-
+let checkbox;
 /**
 * @returns {string}
 */
@@ -78,9 +78,31 @@ fetch("./data/destinations.json")
       <div class="card__more"><span  id="spade${x.id}" onclick="heartclick(${x.id})">
       ${Fav.includes(x.id) ? "❤️" : "🖤"}</span><a href="detail.html?id=${x.id}">More</a></div>
       </div>`).join("");
-
+      innerHTML += `<label for="check">Dark mode:</label>
+       <input type="checkbox" id="check" name="check" value="check" onchange="checkchanged()">`;
     div.innerHTML = innerHTML;
     body.append(div);
+    
+    checkbox = document.querySelector("#check");
+    let darkmode = GetLocalStorage("darkmode");
+    if (darkmode == null)
+      rootElm.setAttribute("data-dark", checkbox.checked);
+    else
+    {
+      rootElm.setAttribute("data-dark", darkmode);
+      checkbox.checked = darkmode;
+    }
   })
+
+  let rootElm = document.documentElement;
+console.log(rootElm); 
+
+function checkchanged(){
+    console.log("changed"+checkbox.checked);
+    rootElm.setAttribute("data-dark", checkbox.checked);
+    SaveLocalStorage("darkmode", checkbox.checked);
+}
+
+
 
 

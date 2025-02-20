@@ -89,5 +89,9 @@ then(x => {
        
        section.innerHTML = innerHTML;
        body.append(section);
-    
+       let rootElm = document.documentElement;
+
+       let darkmode = GetLocalStorage("darkmode");
+       if (darkmode != null)
+         rootElm.setAttribute("data-dark", darkmode);
 });
